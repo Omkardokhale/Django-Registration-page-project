@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>List of persons</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <style>
+        .container1 {
+            
+            background-color: rgb(243, 216, 63);
+            color: rgb(43, 40, 40);
+        }
+
+        .container2 {
+            background-color: rgb(248, 249, 250);
+            color: rgb(43, 40, 40);
+        }
+
+        .container3 {
+            background-color: rgb(125, 236, 125);
+            color: rgb(43, 40, 40);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h2>
+        <center>
+    </h2>
+    </center>
+    <h3>
+        <center>
+            <font color="purpel"></font>
+    </h3>
+    </center>
+    <hr color="green">
+    <h4>
+        <center> <b><i></i></b></center>
+    </h4>
+
+    <div class="container1">
+        <table border=2 color="purple" align="center">
+
+            <tr>
+                <center><h1><b>Authors</b></h1></center>
+
+            </tr>
+
+            <tr>
+                <th>Name </th>
+                <th>Email ID </th>
+            </tr>
+            {% for entry in stud1 %}
+            <tr>
+                <td align="center"> {{ entry.name }} </td>
+                <td align="center"> {{ entry.email }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <br>
+
+    <div class="container2">
+        <table border=2 color="purple" align="center">
+
+            <tr>
+                <center><h1><b>Entrys</b></h1></center>
+
+            </tr>
+            <tr>
+                <th>Blog </th>
+                <th>Headline</th>
+                <th>Body Text</th>
+                <th>Pub. Date</th>
+                <th>Mod. Date </th>
+                <th>Authors</th>
+                <th>No.of Comment</th>
+                <th>No. of pingback</th>
+                <th>Rating</th>
+            </tr>
+            {% for entry in stud2 %}
+            <tr>
+                <td align="center"> {{ entry.blog }} </td>
+                <td align="center"> {{ entry.headline}} </td>
+                <td align="center"> {{ entry.body_text}} </td>
+                <td align="center"> {{ entry.pub_date}} </td>
+                <td align="center"> {{ entry.mod_date }} </td>
+                <td align="center"> {{ entry.authors}} </td>
+                <td align="center"> {{ entry.number_of_comments}} </td>
+                <td align="center"> {{ entry.number_of_pingbacks}} </td>
+                <td align="center"> {{ entry.rating}} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <br>
+
+
+
+    <div class="container3">
+        <table border=2 color="purple" align="center">
+
+            <tr>
+                <center><h1><b>Blogs</b></h1></center>
+
+            </tr>
+            <tr>
+                <th>
+                    <center><b>Name</b></center>
+                </th>
+                <th>
+                    <center><b>Tagline</b></center>
+                </th>
+            </tr>
+            {% for entry in stud3 %}
+            <tr>
+                <td align="center"> {{ entry.name }} </td>
+                <td align="center"> {{ entry.tagline}} </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+
+
+</body>
+
+</html>

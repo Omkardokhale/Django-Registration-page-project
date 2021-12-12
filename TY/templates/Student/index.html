@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        .button{
+            
+            width: 100%;
+            background-color: rgb(89, 144, 245);
+        }
+
+        
+        .myTable {
+            width: 40%;
+            text-align: left;
+            background-color: lemonchiffon;
+            border-collapse: collapse;
+        }
+
+        .myTable th {
+            background-color: lightblue;
+            color: red;
+        }
+
+        .myTable td,
+        .myTable th {
+            padding: 10px;
+            border: 2px solid goldenrod;
+        }
+
+        .myTable1 {
+            width: 40%;
+            text-align: left;
+            background-color: lightblue;
+            border-collapse: collapse;
+        }
+
+        .myTable1 th {
+            background-color: goldenrod;
+            color: white;
+        }
+
+        .myTable1 td,
+        .myTable1 th {
+            padding: 10px;
+            border: 2px solid goldenrod;
+        }
+
+        hr {
+            color: #f00;
+            background-color: #f00;
+            height: 5px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+
+
+
+    {% if user.is_authenticated %}
+    <h4>You're successfully logged in.</h4>
+
+
+    <h2>
+        <center>WELCOME TO
+    </h2>
+    </center>
+    <h3>
+        <center>
+            <font color="purpel">Student Exam Result </font>
+    </h3>
+    </center>
+    <hr color="green">
+    <h4>
+        <center> <b><i>RESULT </i></b></center>
+    </h4>
+
+
+
+    <table border=2 color="red" align="center" class="myTable1">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Reg No.</th>
+			<th>Roll No.</th>
+		</tr>
+
+
+		{% for entry in stud12 %}
+		<tr>
+
+			<td align="center"> {{entry.first_name}}</td>
+			<td align="center"> {{entry.last_name}}</td>
+			<td align="center"> {{entry.reg_number}}</td>
+			<td align="center"> {{entry.roll_number}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<br>
+
+
+	<table border=2 class="myTable1" align="center">
+		<thead>
+		  <tr>
+			<th align="center" scope="col">Sr No.</th>
+			<th align="center" scope="col">Subjects</th>
+			<th align="center" scope="col">Marks</th>
+		  </tr>
+		</thead>
+
+
+		{% for entry in stud12 %}
+		<tbody>
+		  <tr>
+			<th align="center" scope="row">1</th>
+			<td>Python</td>
+			<td align="center"> {{entry.Python}}</td>
+			
+		  </tr>
+		  <tr>
+			<th align="center" scope="row">2</th>
+			<td>TOC</td>
+			<td align="center"> {{entry.TOC}}</td>
+		
+		  </tr>
+		  <tr>
+			<th align="center" scope="row">3</th>
+			<td>DBMS</td>
+			<td align="center"> {{entry.DBMS}}</td>
+		
+		  </tr>
+		  <tr>
+			<th align="center" scope="row">4</th>
+			<td>OS</td>
+			<td align="center"> {{entry.OS}}</td>
+		
+		  </tr>
+		 
+		</tbody>
+		{% endfor %}
+	  </table>
+
+
+<br>
+<br>
+<br>
+
+<div class="button" align="center">
+        <button  type="submit"><a href="/signout">SignOut</a></button>
+</div>
+
+
+
+
+        {% else %}
+        <button type="submit"><a href="/signup">SignUp</a></button>
+        <br />
+        <br />
+        <button type="submit"><a href="/signin">SignIn</a></button>
+        {% endif %}
+     
+</body>
+
+</html>
+
